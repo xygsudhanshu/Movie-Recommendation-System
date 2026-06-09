@@ -60,10 +60,12 @@ def recommend(movie):
 
 
 import lzma
-import pickle
+# import pickle
 
-with lzma.open('similarity.lzma', 'rb') as f:
+with lzma.open("similarity_float32.lzma", "rb") as f:
     similarity = pickle.load(f)
+print(similarity.shape)
+print(similarity.dtype)
 st.title('Movie Recommendation System')
 movies_dict=pickle.load(open('movie_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
